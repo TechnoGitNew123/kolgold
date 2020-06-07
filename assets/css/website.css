@@ -1,0 +1,289 @@
+body{
+  padding: 0px!important;
+  margin: 0px!important;
+}
+
+.row{
+  padding: 0px!important;
+  margin: 0px!important;
+}
+
+.container-fluid{
+    padding: 0px!important;
+    margin: 0px!important;
+}
+
+h1, h2, h3, h4, h5{
+  font-family: 'Quicksand', sans-serif;
+}
+
+p{
+  font-family: 'Quicksand', sans-serif;
+}
+
+.top-nav{
+  background-color: #e6650b;
+  color: #fff;
+  padding-top: 10px;
+  padding-bottom: 8px;
+}
+
+.f-10{
+  font-size: 10px!important;
+}
+
+
+.f-12{
+  font-size: 12px!important;
+}
+
+
+.f-14{
+  font-size: 14px!important;
+}
+
+.f-16{
+  font-size: 16px!important;
+}
+
+
+.f-18{
+  font-size: 18px!important;
+}
+
+.f-20{
+  font-size: 20px!important;
+}
+.f-22{
+  font-size: 22px!important;
+}
+
+.bg-web{
+  background-color: #e6650b!important;
+}
+
+.text-web{
+  color: #e6650b!important;
+}
+
+.top-logo{
+  width: 250px;
+  height: auto;
+}
+
+.carousel-caption{
+  position: absolute;
+  bottom: 40%;
+  left: 25%;
+  text-align: center;
+}
+
+.carousel-caption h5{
+  font-size: 2.5rem;
+}
+
+
+.welcome-section{
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+
+.jumbotron{
+  background-color: #ffbc3f!important;
+}
+
+.jumbotron h1{
+  font-size: 2.5rem;
+  color: #aa5656;
+}
+
+.middle-banner{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.banner-img-middle{
+  width: 100%;
+  height: auto;
+}
+
+
+
+.main-category{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+
+.main-category .category-div{
+  border: 1px solid #e8e8e8;
+  margin-bottom: 30px;
+}
+
+.main-category .category-div:hover{
+  border: 1px solid #e6650b;
+}
+
+.main-category .category-div h5{
+  border-top: 1px solid #e8e8e8;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.main-category .category-div:hover .category-div h5{
+  border-top: 1px solid #e6650b;
+}
+
+ .category-img{
+  width: 300px;
+  height: 300px;
+}
+
+.main-prduct{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+ .main-prduct .card-title{
+  text-align: center;
+  font-size: 15px;
+  color: #777;
+}
+
+.owl-prev {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%!important;
+    position: absolute;
+    top: 30%;
+    margin-left: -30px!important;
+    display: block !important;
+    border:0px solid black;
+    background-color: #fece00!important;
+    color: #000!important;
+}
+
+.owl-prev:hover{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%!important;
+}
+
+.owl-next:hover {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%!important;
+}
+  .owl-next {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%!important;
+    position: absolute;
+    top: 30%;
+    right: -30px;
+    display: block !important;
+    border:0px solid black;
+    background-color: #fece00!important;
+    color: #000!important;
+}
+
+.nav-btn{
+  font-size: 25px!important;
+  color: #000;
+}
+
+.owl-prev i, .owl-next i {transform : scale(1,6); color: #ccc;}
+
+
+
+.attr{
+  margin-top: 8px!important;
+  margin-bottom: 5px!important;
+}
+
+.price{
+  text-align: center;
+  color: #e6650b;
+}
+
+.line-throw {
+    text-decoration: line-through;
+}
+
+.blog{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.blog h2{
+  padding-top: 10px;
+  padding-bottom: 20px;
+  color: #aa5656;
+}
+
+.blog .card{
+   overflow: hidden;
+}
+
+.blog .card .card-img-top {
+  width: 100%;
+  height: 280px;
+  transition: all 0.3s;
+  transform: scale(1);
+}
+
+.blog .badge {
+  position: absolute;
+  top:5%;
+  right: 8%;
+  z-index: 1;
+  background-color: #e6e6e6!important;
+  font-size: 15px;
+  color: #282828;
+  padding: 10px;
+}
+
+.blog .card:hover .card-img-top{
+  transform: scale(1.1);
+  transform-origin: 50% 50%;
+  filter: blur(1px);
+  filter: brightness(50%);
+}
+
+.video-sec{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+footer{
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  background-color: #f6f6f6;
+}
+
+footer .footer-logo{
+  width: 220px;
+  height: 60px;
+}
+
+footer .post .cart-top img{
+  width: 75px;
+  height: 50px;
+}
+
+footer ul li{
+  font-size: 12px;
+}
+
+.bottom-footer{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top: 1px solid #282828;
+}
+
+.bottom-footer p{
+  font-weight: 500;
+  color: #282828;
+}
