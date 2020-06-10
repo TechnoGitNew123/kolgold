@@ -332,6 +332,7 @@
             <span class="badge">7 Jun</span>
             <div class="card-body">
               <h5 class="card-title text-center">Card title</h5>
+              <p class="author"> <span>posted By</span> <span>  Adbcd abcd</span></p>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  anim id est laborum.</p>
               <a href="#" class="btn btn-outline-info ">Read More</a>
             </div>

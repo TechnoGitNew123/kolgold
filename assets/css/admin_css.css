@@ -21,6 +21,16 @@
   font-size: 22px !important;
 }
 
+.login-page{
+  background-image: url("../../assets/images/middle.png");
+  width: 100%!important;
+  /* height: 100%!important; */
+  /* height: 100vh!important; */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
 /* Sidebar */
 .nav-link-head {
     display: block;

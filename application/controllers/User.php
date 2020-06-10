@@ -14,10 +14,10 @@ class User extends CI_Controller{
 
 /**************************      Login      ********************************/
   public function index(){
-    $coach_user_id = $this->session->userdata('coach_user_id');
-    $coach_company_id = $this->session->userdata('coach_company_id');
-    $coach_role_id = $this->session->userdata('coach_role_id');
-    if($coach_user_id == '' && $coach_company_id == ''){
+    $col_user_id = $this->session->userdata('col_user_id');
+    $col_company_id = $this->session->userdata('col_company_id');
+    $col_role_id = $this->session->userdata('col_role_id');
+    if($col_user_id == '' && $col_company_id == ''){
       $this->form_validation->set_rules('mobile', 'Mobile No', 'trim|required');
       $this->form_validation->set_rules('password', 'Password', 'trim|required');
       if ($this->form_validation->run() == FALSE) {
@@ -33,9 +33,9 @@ class User extends CI_Controller{
           header('location:'.base_url().'User');
         } else{
           // echo 'null not';
-          $this->session->set_userdata('coach_user_id', $login[0]['user_id']);
-          $this->session->set_userdata('coach_company_id', $login[0]['company_id']);
-          $this->session->set_userdata('coach_role_id', $login[0]['role_id']);
+          $this->session->set_userdata('col_user_id', $login[0]['user_id']);
+          $this->session->set_userdata('col_company_id', $login[0]['company_id']);
+          $this->session->set_userdata('col_role_id', $login[0]['role_id']);
           // $this->session->set_userdata('branch_id', $login[0]['branch_id']);
           header('location:'.base_url().'User/dashboard');
         }
@@ -48,37 +48,27 @@ class User extends CI_Controller{
 
 /**************************      Dashboard      ********************************/
   public function dashboard(){
-    $coach_user_id = $this->session->userdata('coach_user_id');
-    $coach_company_id = $this->session->userdata('coach_company_id');
-    $coach_role_id = $this->session->userdata('coach_role_id');
-    if($coach_user_id == '' && $coach_company_id == ''){ header('location:'.base_url().'User'); }
+    $col_user_id = $this->session->userdata('col_user_id');
+    $col_company_id = $this->session->userdata('col_company_id');
+    $col_role_id = $this->session->userdata('col_role_id');
+    if($col_user_id == '' && $col_company_id == ''){ header('location:'.base_url().'User'); }
     $company_id = '';
-
-    $data['medium_cnt'] = $this->Master_Model->get_count('medium_id', $company_id,'','','','','','','medium');
-    $data['class_cnt'] = $this->Master_Model->get_count('class_id', $company_id,'','','','','','','class');
-    $data['batch_cnt'] = $this->Master_Model->get_count('batch_id', $company_id,'','','','','','','batch');
-    $data['student_cnt'] = $this->Master_Model->get_count('student_id', $company_id,'','','','','','','student');
-    $data['subject_cnt'] = $this->Master_Model->get_count('subject_id', $company_id,'','','','','','','subject');
-    $data['topic_cnt'] = $this->Master_Model->get_count('topic_id', $company_id,'','','','','','','topic');
-    $data['download_content_cnt'] = $this->Master_Model->get_count('download_content_id', $company_id,'','','','','','','download_content');
-    $data['receipt_cnt'] = $this->Master_Model->get_count('receipt_id', $company_id,'','','','','','','receipt');
-
-    $this->load->view('Include/head', $data);
-    $this->load->view('Include/navbar', $data);
-    $this->load->view('User/dashboard', $data);
-    $this->load->view('Include/footer', $data);
+    $this->load->view('Include/head');
+    $this->load->view('Include/navbar');
+    $this->load->view('User/dashboard');
+    $this->load->view('Include/footer');
   }
 
 /**************************      Company Information      ********************************/
 
   // Company List...
   public function company_information_list(){
-    $coach_user_id = $this->session->userdata('coach_user_id');
-    $coach_company_id = $this->session->userdata('coach_company_id');
-    $coach_role_id = $this->session->userdata('coach_role_id');
-    if($coach_user_id == '' && $coach_company_id == ''){ header('location:'.base_url().'User'); }
+    $col_user_id = $this->session->userdata('col_user_id');
+    $col_company_id = $this->session->userdata('col_company_id');
+    $col_role_id = $this->session->userdata('col_role_id');
+    if($col_user_id == '' && $col_company_id == ''){ header('location:'.base_url().'User'); }
 
-    $data['company_list'] = $this->Master_Model->get_list($coach_company_id,'company_id','ASC','company');
+    $data['company_list'] = $this->Master_Model->get_list($col_company_id,'company_id','ASC','company');
     $this->load->view('Include/head', $data);
     $this->load->view('Include/navbar', $data);
     $this->load->view('User/company_information_list', $data);
@@ -87,10 +77,10 @@ class User extends CI_Controller{
 
   // Edit Company...
   public function edit_company($company_id){
-    $coach_user_id = $this->session->userdata('coach_user_id');
-    $coach_company_id = $this->session->userdata('coach_company_id');
-    $coach_role_id = $this->session->userdata('coach_role_id');
-    if($coach_user_id == '' && $coach_company_id == ''){ header('location:'.base_url().'User'); }
+    $col_user_id = $this->session->userdata('col_user_id');
+    $col_company_id = $this->session->userdata('col_company_id');
+    $col_role_id = $this->session->userdata('col_role_id');
+    if($col_user_id == '' && $col_company_id == ''){ header('location:'.base_url().'User'); }
 
     $this->form_validation->set_rules('company_name', 'company_name', 'trim|required');
     $this->form_validation->set_rules('company_address', 'company_address', 'trim|required');
@@ -144,10 +134,10 @@ class User extends CI_Controller{
 
   // Add User...
   public function user_information(){
-    $coach_user_id = $this->session->userdata('coach_user_id');
-    $coach_company_id = $this->session->userdata('coach_company_id');
-    $coach_role_id = $this->session->userdata('coach_role_id');
-    if($coach_user_id == '' || $coach_company_id == ''){ header('location:'.base_url().'User'); }
+    $col_user_id = $this->session->userdata('col_user_id');
+    $col_company_id = $this->session->userdata('col_company_id');
+    $col_role_id = $this->session->userdata('col_role_id');
+    if($col_user_id == '' || $col_company_id == ''){ header('location:'.base_url().'User'); }
 
     $this->form_validation->set_rules('user_name', 'First Name', 'trim|required');
     if ($this->form_validation->run() != FALSE) {
@@ -155,8 +145,8 @@ class User extends CI_Controller{
       if(!isset($user_status)){ $user_status = '1'; }
       $save_data = $_POST;
       $save_data['user_status'] = $user_status;
-      $save_data['company_id'] = $coach_company_id;
-      $save_data['user_addedby'] = $coach_user_id;
+      $save_data['company_id'] = $col_company_id;
+      $save_data['user_addedby'] = $col_user_id;
       $save_data['user_date'] = date('d-m-Y');
       $save_data['user_time'] = date('h:i:s A');
       $user_id = $this->Master_Model->save_data('user', $save_data);
@@ -165,7 +155,7 @@ class User extends CI_Controller{
       header('location:'.base_url().'User/user_information');
     }
 
-    $data['user_list'] = $this->Master_Model->get_list_by_id3($coach_company_id,'is_admin','0','','','','','user_id','ASC','user');
+    $data['user_list'] = $this->Master_Model->get_list_by_id3($col_company_id,'is_admin','0','','','','','user_id','ASC','user');
     $this->load->view('Include/head', $data);
     $this->load->view('Include/navbar', $data);
     $this->load->view('User/user_information', $data);
@@ -174,10 +164,10 @@ class User extends CI_Controller{
 
   // Edit/Update Education Level...
   public function edit_user($user_id){
-    $coach_user_id = $this->session->userdata('coach_user_id');
-    $coach_company_id = $this->session->userdata('coach_company_id');
-    $coach_role_id = $this->session->userdata('coach_role_id');
-    if($coach_user_id == '' || $coach_company_id == ''){ header('location:'.base_url().'User'); }
+    $col_user_id = $this->session->userdata('col_user_id');
+    $col_company_id = $this->session->userdata('col_company_id');
+    $col_role_id = $this->session->userdata('col_role_id');
+    if($col_user_id == '' || $col_company_id == ''){ header('location:'.base_url().'User'); }
 
     $this->form_validation->set_rules('user_name', 'First Name', 'trim|required');
     if ($this->form_validation->run() != FALSE) {
@@ -185,7 +175,7 @@ class User extends CI_Controller{
       if(!isset($user_status)){ $user_status = '1'; }
       $update_data = $_POST;
       $update_data['user_status'] = $user_status;
-      $update_data['user_addedby'] = $coach_user_id;
+      $update_data['user_addedby'] = $col_user_id;
       $update_data['user_date'] = date('d-m-Y');
       $update_data['user_time'] = date('h:i:s A');
       $this->Master_Model->update_info('user_id', $user_id, 'user', $update_data);
@@ -201,7 +191,7 @@ class User extends CI_Controller{
     $data['user_info'] = $user_info[0];
     $data['act_link'] = base_url().'User/edit_user/'.$user_id;
 
-    $data['user_list'] = $this->Master_Model->get_list_by_id3($coach_company_id,'is_admin','0','','','','','user_id','ASC','user');
+    $data['user_list'] = $this->Master_Model->get_list_by_id3($col_company_id,'is_admin','0','','','','','user_id','ASC','user');
     $this->load->view('Include/head', $data);
     $this->load->view('Include/navbar', $data);
     $this->load->view('User/user_information', $data);
@@ -210,10 +200,10 @@ class User extends CI_Controller{
 
   //Delete Education Level...
   public function delete_user($user_id){
-    $coach_user_id = $this->session->userdata('coach_user_id');
-    $coach_company_id = $this->session->userdata('coach_company_id');
-    $coach_role_id = $this->session->userdata('coach_role_id');
-    if($coach_user_id == '' || $coach_company_id == ''){ header('location:'.base_url().'User'); }
+    $col_user_id = $this->session->userdata('col_user_id');
+    $col_company_id = $this->session->userdata('col_company_id');
+    $col_role_id = $this->session->userdata('col_role_id');
+    if($col_user_id == '' || $col_company_id == ''){ header('location:'.base_url().'User'); }
     $this->Master_Model->delete_info('user_id', $user_id, 'user');
     $this->session->set_flashdata('delete_success','success');
     header('location:'.base_url().'User/user_information');
@@ -224,11 +214,11 @@ class User extends CI_Controller{
 
   // // User List....
   // public function user_list(){
-  //   $coach_user_id = $this->session->userdata('coach_user_id');
-  //   $coach_company_id = $this->session->userdata('coach_company_id');
-  //   $coach_role_id = $this->session->userdata('coach_role_id');
-  //   if($coach_user_id == '' && $coach_company_id == ''){ header('location:'.base_url().'User'); }
-  //   $data['user_list'] = $this->User_Model->user_list($coach_company_id);
+  //   $col_user_id = $this->session->userdata('col_user_id');
+  //   $col_company_id = $this->session->userdata('col_company_id');
+  //   $col_role_id = $this->session->userdata('col_role_id');
+  //   if($col_user_id == '' && $col_company_id == ''){ header('location:'.base_url().'User'); }
+  //   $data['user_list'] = $this->User_Model->user_list($col_company_id);
   //   $this->load->view('Include/head',$data);
   //   $this->load->view('Include/navbar',$data);
   //   $this->load->view('User/user_list',$data);
@@ -237,18 +227,18 @@ class User extends CI_Controller{
   //
   // // Add New User....
   // public function add_user(){
-  //   $coach_user_id = $this->session->userdata('coach_user_id');
-  //   $coach_company_id = $this->session->userdata('coach_company_id');
-  //   $coach_role_id = $this->session->userdata('coach_role_id');
-  //   if($coach_user_id == '' && $coach_company_id == ''){ header('location:'.base_url().'User'); }
+  //   $col_user_id = $this->session->userdata('col_user_id');
+  //   $col_company_id = $this->session->userdata('col_company_id');
+  //   $col_role_id = $this->session->userdata('col_role_id');
+  //   if($col_user_id == '' && $col_company_id == ''){ header('location:'.base_url().'User'); }
   //   $this->form_validation->set_rules('user_name', 'First Name', 'trim|required');
   //   if ($this->form_validation->run() != FALSE) {
   //     $user_status = $this->input->post('user_status');
   //     if(!isset($user_status)){ $user_status = '1'; }
   //     $save_data = $_POST;
   //     $save_data['user_status'] = $user_status;
-  //     $save_data['company_id'] = $coach_company_id;
-  //     $save_data['user_addedby'] = $coach_user_id;
+  //     $save_data['company_id'] = $col_company_id;
+  //     $save_data['user_addedby'] = $col_user_id;
   //     $save_data['user_date'] = date('d-m-Y h:i:s A');
   //     $user_id = $this->Master_Model->save_data('user', $save_data);
   //
@@ -289,9 +279,9 @@ class User extends CI_Controller{
   //     $this->session->set_flashdata('save_success','success');
   //     header('location:'.base_url().'User/user_list');
   //   }
-  //   $data['group_list'] = $this->Master_Model->get_list_by_id2($coach_company_id,'','','','','group_name','ASC','group');get_list_by_id('company_id',$coach_company_id,'','','group_name','ASC','group');
+  //   $data['group_list'] = $this->Master_Model->get_list_by_id2($col_company_id,'','','','','group_name','ASC','group');get_list_by_id('company_id',$col_company_id,'','','group_name','ASC','group');
   //   $data['role_list'] = $this->Master_Model->get_list_by_id2('','','','','','role_name','ASC','role');
-  //   $data['branch_list'] = $this->Master_Model->get_list_by_id2($coach_company_id,'','','','','branch_name','ASC','branch');
+  //   $data['branch_list'] = $this->Master_Model->get_list_by_id2($col_company_id,'','','','','branch_name','ASC','branch');
   //   $this->load->view('Include/head', $data);
   //   $this->load->view('Include/navbar', $data);
   //   $this->load->view('User/user', $data);
@@ -300,10 +290,10 @@ class User extends CI_Controller{
   //
   // // Edit User....
   // public function edit_user($user_id){
-  //   $coach_user_id = $this->session->userdata('coach_user_id');
-  //   $coach_company_id = $this->session->userdata('coach_company_id');
-  //   $coach_role_id = $this->session->userdata('coach_role_id');
-  //   if($coach_user_id == '' && $coach_company_id == ''){ header('location:'.base_url().'User'); }
+  //   $col_user_id = $this->session->userdata('col_user_id');
+  //   $col_company_id = $this->session->userdata('col_company_id');
+  //   $col_role_id = $this->session->userdata('col_role_id');
+  //   if($col_user_id == '' && $col_company_id == ''){ header('location:'.base_url().'User'); }
   //   $this->form_validation->set_rules('user_name', 'First Name', 'trim|required');
   //   if ($this->form_validation->run() != FALSE) {
   //     $user_status = $this->input->post('user_status');
@@ -311,8 +301,8 @@ class User extends CI_Controller{
   //     $update_data = $_POST;
   //     unset($update_data['old_img']);
   //     $update_data['user_status'] = $user_status;
-  //     $update_data['company_id'] = $coach_company_id;
-  //     $update_data['user_addedby'] = $coach_user_id;
+  //     $update_data['company_id'] = $col_company_id;
+  //     $update_data['user_addedby'] = $col_user_id;
   //     $update_data['user_date'] = date('d-m-Y h:i:s A');
   //     $this->Master_Model->update_info('user_id', $user_id, 'user', $update_data);
   //
@@ -357,10 +347,10 @@ class User extends CI_Controller{
   //   if($user_info == ''){ header('location:'.base_url().'User/user_list'); }
   //   $data['update'] = 'update';
   //   $data['user_info'] = $user_info[0];
-  //   $data['group_list'] = $this->Master_Model->get_list_by_id2($coach_company_id,'company_id',$coach_company_id,'','','group_name','ASC','group');
+  //   $data['group_list'] = $this->Master_Model->get_list_by_id2($col_company_id,'company_id',$col_company_id,'','','group_name','ASC','group');
   //   $data['role_list'] = $this->Master_Model->get_list_by_id2('','','','','','role_name','ASC','role');
-  //   $data['branch_list'] = $this->Master_Model->get_list_by_id2($coach_company_id,'company_id',$coach_company_id,'','','branch_name','ASC','branch');
-  //   $data['user_file_list'] = $this->Master_Model->get_list_by_id2($coach_company_id,'user_id',$user_id,'','','user_file_id','ASC','user_file');
+  //   $data['branch_list'] = $this->Master_Model->get_list_by_id2($col_company_id,'company_id',$col_company_id,'','','branch_name','ASC','branch');
+  //   $data['user_file_list'] = $this->Master_Model->get_list_by_id2($col_company_id,'user_id',$user_id,'','','user_file_id','ASC','user_file');
   //   $this->load->view('Include/head',$data);
   //   $this->load->view('Include/navbar',$data);
   //   $this->load->view('User/user',$data);
@@ -377,10 +367,10 @@ class User extends CI_Controller{
   //
   // // Delete User....
   // public function delete_user($user_id){
-  //   $coach_user_id = $this->session->userdata('coach_user_id');
-  //   $coach_company_id = $this->session->userdata('coach_company_id');
-  //   $coach_role_id = $this->session->userdata('coach_role_id');
-  //   if($coach_user_id == '' && $coach_company_id == ''){ header('location:'.base_url().'User'); }
+  //   $col_user_id = $this->session->userdata('col_user_id');
+  //   $col_company_id = $this->session->userdata('col_company_id');
+  //   $col_role_id = $this->session->userdata('col_role_id');
+  //   if($col_user_id == '' && $col_company_id == ''){ header('location:'.base_url().'User'); }
   //   $user_info = $this->Master_Model->get_info_arr_fields('user_image','user_id', $user_id, 'user');
   //   if($user_info[0]['user_image']){ unlink("assets/images/user/".$user_info[0]['user_image']); }
   //   $this->Master_Model->delete_info('user_id', $user_id, 'user');

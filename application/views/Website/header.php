@@ -26,7 +26,7 @@
         <p class="text-white mb-0">   <i class="fab  fa-facebook-f "></i>  &nbsp; <i class="fab twitter fa-twitter"></i> &nbsp; <i class="fab  linkedin fa-linkedin-in"></i> &nbsp; <i class="fab instagram fa-instagram"></i>  </p>
       </div>
       <div class="2">
-        <p class="mb-0 f-16">Login / Register</p>
+      <a class="text-white" href="<?php echo base_url(); ?>Website/login"> <p class="mb-0 f-16">Login / Register</p></a>
       </div>
       <div class="1">
         <p class="mb-0 ml-3 f-18"><i class="fa text-green fa-shopping-cart "><span class="badge badge-notify my-cart-badge">0</span></i></p>

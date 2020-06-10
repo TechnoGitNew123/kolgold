@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>KolGold | Log in</title>
+  <title>KolGold | Sign Up</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -27,36 +27,69 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Login </p>
-      <form method="post" action="">
-        <div class="input-group mb-3">
-          <input type="number" min="5000000000" max="9999999999" class="form-control" name="mobile" id="mobile" placeholder="Mobile Number" required>
-          <div class="input-group-append">
+      <form  role="form" action="" method="post">
+        <div class="row">
+          <div class="col-md-6">
+            <label>First Name*</label>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" name="customer_fname" id="customer_fname" placeholder="First Name" required>
+                  <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                  </div>
+                </div>
+          </div>
+          <div class="col-md-6">
+            <label>Last Name*</label>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="customer_lname" id="customer_lname" placeholder="Last Name" required>
             <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
+                  <span class="fas fa-user"></span>
+                </div>
+          </div>
           </div>
         </div>
-        <span class="text-red"> <?php echo form_error('email'); ?> </span>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
+
+      <label>Mobile No.*</label>
+    <div class="input-group mb-3">
+      <input type="number" class="form-control" name="customer_mobile" id="customer_mobile" placeholder="Mobile Number" required>
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-mobile"></span>
         </div>
-        <span class="text-red"> <?php echo form_error('password'); ?> </span>
+      </div>
+    </div>
+
+    <label>Email</label>
+    <div class="input-group mb-3">
+      <input type="email" class="form-control" name="customer_email" id="customer_email" placeholder="Email">
+      <div class="input-group-append">
+        <div class="input-group-text">
+        <span class="fas fa-envelope"></span>
+        </div>
+      </div>
+    </div>
+    <label>Password*</label>
+    <div class="input-group mb-3">
+      <input type="password" class="form-control" name="customer_password" id="customer_password" placeholder="Password" required>
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-lock"></span>
+        </div>
+      </div>
+    </div>
+    <span class="text-red"> <?php echo form_error('password'); ?> </span>
+
         <div class="row">
           <div class="col-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign Up</button>
           </div>
-          <!-- /.col -->
+          <div class="col-8">
+            <p style="font-size:14px;">Existing Customer  <a href="<?php echo base_url(); ?>Website/login">Log In ?</a> </p>
+          </div>
         </div>
       </form>
       <!-- /.social-auth-links -->
-      <p class="mb-1">
-        <a href="#">I forgot my password</a>
-      </p>
+
       <div class="alert alert-danger p-2 msg_invalid" style="display:none" role="alert">
         Invalid Information
       </div>

@@ -30,7 +30,7 @@ class Admin extends CI_Controller{
       }
       else{
         foreach ($login as $login){
-          $this->session->set_userdata('coach_admin_id', $login['admin_id']);
+          $this->session->set_userdata('col_admin_id', $login['admin_id']);
         }
         header('location:'.base_url().'Admin/dashboard');
       }
@@ -38,14 +38,14 @@ class Admin extends CI_Controller{
   }
 
   public function dashboard(){
-    $coach_admin_id = $this->session->userdata('coach_admin_id');
-    if($coach_admin_id == ''){ header('location:'.base_url().'Admin'); }
+    $col_admin_id = $this->session->userdata('col_admin_id');
+    if($col_admin_id == ''){ header('location:'.base_url().'Admin'); }
     $this->load->view('Admin/dashboard');
   }
 
   public function company_information(){
-    $coach_admin_id = $this->session->userdata('coach_admin_id');
-    if($coach_admin_id == ''){ header('location:'.base_url().'Admin'); }
+    $col_admin_id = $this->session->userdata('col_admin_id');
+    if($col_admin_id == ''){ header('location:'.base_url().'Admin'); }
     $data['country_list'] = $this->User_Model->get_list2('','ASC','country');
     $data['state_list'] = $this->User_Model->get_list2('','ASC','state');
     $data['district_list'] = $this->User_Model->get_list2('','ASC','district');
@@ -53,8 +53,8 @@ class Admin extends CI_Controller{
   }
 
   public function company_information_list(){
-    $coach_admin_id = $this->session->userdata('coach_admin_id');
-    if($coach_admin_id == ''){ header('location:'.base_url().'Admin'); }
+    $col_admin_id = $this->session->userdata('col_admin_id');
+    if($col_admin_id == ''){ header('location:'.base_url().'Admin'); }
     $data['company_list'] = $this->Admin_Model->get_company_list();
     $this->load->view('Admin/company_information_list',$data);
   }
@@ -94,8 +94,8 @@ class Admin extends CI_Controller{
   }
 
   public function edit_company($company_id){
-    $coach_admin_id = $this->session->userdata('coach_admin_id');
-    if($coach_admin_id == ''){ header('location:'.base_url().'Admin'); }
+    $col_admin_id = $this->session->userdata('col_admin_id');
+    if($col_admin_id == ''){ header('location:'.base_url().'Admin'); }
     $company_info = $this->Admin_Model->get_info('company_id', $company_id, 'company');
     $data['country_list'] = $this->User_Model->get_list2('','ASC','country');
     $data['state_list'] = $this->User_Model->get_list2('','ASC','state');
@@ -124,8 +124,8 @@ class Admin extends CI_Controller{
   }
 
   public function update_company(){
-    $coach_admin_id = $this->session->userdata('coach_admin_id');
-    if($coach_admin_id == ''){ header('location:'.base_url().'Admin'); }
+    $col_admin_id = $this->session->userdata('col_admin_id');
+    if($col_admin_id == ''){ header('location:'.base_url().'Admin'); }
     $data['country_list'] = $this->User_Model->get_list2('','ASC','country');
     $data['state_list'] = $this->User_Model->get_list2('','ASC','state');
     $data['district_list'] = $this->User_Model->get_list2('','ASC','district');
@@ -151,8 +151,8 @@ class Admin extends CI_Controller{
   }
 
   public function delete_company($company_id){
-    $coach_admin_id = $this->session->userdata('coach_admin_id');
-    if($coach_admin_id == ''){ header('location:'.base_url().'Admin'); }
+    $col_admin_id = $this->session->userdata('col_admin_id');
+    if($col_admin_id == ''){ header('location:'.base_url().'Admin'); }
     $this->User_Model->delete_info('company_id', $company_id, 'company');
     header('location:'.base_url().'Admin/company_information_list');
   }

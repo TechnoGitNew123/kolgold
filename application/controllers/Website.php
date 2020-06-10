@@ -13,8 +13,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       $this->load->view('Website/footer');
     }
 
+    public function login(){
+      $this->load->view('Website/login');
+    }
 
-
-
+    public function signup(){
+      $this->load->view('Website/signup');
+    }
 }
 ?>
