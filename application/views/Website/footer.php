@@ -1,11 +1,11 @@
 <footer>
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 col-12">
         <img class="footer-logo" src="<?php echo base_url(); ?>assets/images/kol_logo.png" alt="" width="100%">
         <p class="f-12 text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, </p>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-12">
         <div class="post text-center">
           <div class="row">
             <div class="col-4">
@@ -35,7 +35,7 @@
         </div>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-3 mmt-2">
         <h5  class="f-12">IMPORTANT LINKS</h5>
         <ul>
           <li>Home</li>
@@ -45,7 +45,7 @@
         </ul>
       </div>
 
-      <div class="col-md-3">
+      <div class="col-md-3 mmt-2">
         <h5  class="f-12">IMPORTANT LINKS</h5>
         <ul>
           <li>Home</li>
@@ -79,8 +79,10 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="<?php echo base_url(); ?>assets/js/jquery.js" ></script>
-<script src="<?php echo base_url(); ?>assets/js/popper.js" ></script>
-<script src="<?php echo base_url(); ?>assets/js/bootstrap.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/js/popper.js" ></script>
+<script src="<?php echo base_url(); ?>assets/js/bootstrap.js" ></script> -->
 
 <script src="<?php echo base_url(); ?>assets/js/owl.carousel.min.js"></script>
 
@@ -131,5 +133,30 @@
           }
         })
     </script>
+
+    <script type="text/javascript">
+// Sticky Header...
+  $(document).ready(function(){
+    var header = $(".sticky");
+    var scroll = $(window).scrollTop();
+    if (scroll >= 250) {
+      header.fadeIn();
+      header.addClass("sticky-top");
+    }
+  });
+  $(function() {
+      var header = $(".sticky");
+      $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+        if (scroll >= 250) {
+          header.fadeIn();
+          header.addClass("sticky-top");
+        } else {
+          header.fadeOut();
+          header.removeClass("sticky-top");
+        }
+      });
+  });
+</script>
 </body>
 </html>

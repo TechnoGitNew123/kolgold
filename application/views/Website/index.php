@@ -3,7 +3,7 @@
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -15,6 +15,12 @@
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="<?php echo base_url(); ?>assets/images/slide2.jpg" alt="Second slide">
+          <div class="carousel-caption d-none d-md-block">
+        <h5>Home Made State Of Art Kolhapuri Chappels</h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="<?php echo base_url(); ?>assets/images/slide1.jpg" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
         <h5>Home Made State Of Art Kolhapuri Chappels</h5>
       </div>
@@ -45,25 +51,25 @@
 <section class="main-category">
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
           <div class="category-div">
               <img class="category-img" src="<?php echo base_url(); ?>assets/images/kolgold.png" alt="" width="100%">
               <h5 class="text-center">Kolhapuri Chappal</h5>
           </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
           <div class="category-div">
               <img class="category-img" src="<?php echo base_url(); ?>assets/images/kolgold.png" alt="" width="100%">
               <h5 class="text-center">Kolhapuri Ghongadi </h5>
           </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
           <div class="category-div">
               <img class="category-img" src="<?php echo base_url(); ?>assets/images/kolgold.png" alt="" width="100%">
               <h5 class="text-center">Kolhapuri Pheta</h5>
           </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
           <div class="category-div">
               <img class="category-img" src="<?php echo base_url(); ?>assets/images/kolgold.png" alt="" width="100%">
               <h5 class="text-center">Kolhapuri Fashion</h5>
@@ -72,25 +78,25 @@
     </div>
 
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
           <div class="category-div">
               <img class="category-img" src="<?php echo base_url(); ?>assets/images/kolgold.png" alt="" width="100%">
               <h5 class="text-center">Kolhapuri Food</h5>
           </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
           <div class="category-div">
               <img class="category-img" src="<?php echo base_url(); ?>assets/images/kolgold.png" alt="" width="100%">
               <h5 class="text-center">Kolhapuri Handcrafts</h5>
           </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
           <div class="category-div">
               <img class="category-img" src="<?php echo base_url(); ?>assets/images/kolgold.png" alt="" width="100%">
               <h5 class="text-center">Kolhapuri Jewellery</h5>
           </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-6">
           <div class="category-div">
               <img class="category-img" src="<?php echo base_url(); ?>assets/images/kolgold.png" alt="" width="100%">
               <h5 class="text-center">Kolhapuri Antique</h5>
@@ -345,6 +351,7 @@
             <span class="badge">7 Jun</span>
             <div class="card-body">
               <h5 class="card-title text-center">Card title</h5>
+            <p class="author"> <span>posted By</span> <span>  Adbcd abcd</span></p>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  anim id est laborum.</p>
               <a href="#" class="btn btn-outline-info ">Read More</a>
             </div>
@@ -358,6 +365,7 @@
             <span class="badge">7 Jun</span>
             <div class="card-body">
               <h5 class="card-title text-center">Card title</h5>
+            <p class="author"> <span>posted By</span> <span>  Adbcd abcd</span></p>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  anim id est laborum.</p>
               <a href="#" class="btn btn-outline-info ">Read More</a>
             </div>
@@ -376,7 +384,7 @@
         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
       </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 mt-5">
         <div class="text">
             <h2>THE MAKING</h2>
           </h4>SEE HOW OUR PRODUCTS TAKE FORM</h4>

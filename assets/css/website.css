@@ -13,12 +13,17 @@ body{
     margin: 0px!important;
 }
 
+.inline{
+  display: inline-block!important;
+}
+
 h1, h2, h3, h4, h5{
   font-family: 'Quicksand', sans-serif;
 }
 
 p{
   font-family: 'Quicksand', sans-serif;
+  font-weight: 400!important;
 }
 
 .top-nav{
@@ -26,6 +31,19 @@ p{
   color: #fff;
   padding-top: 10px;
   padding-bottom: 8px;
+}
+
+.bl-1{
+  border-left: 1px solid #fff;
+  padding-left: 1rem;
+}
+
+.sticky{
+  background-color: #fff!important;
+  z-index: 1000!important;
+  position: fixed !important;
+  top: 0 !important;
+  width: 100%!important;
 }
 
 .f-10{
@@ -284,6 +302,56 @@ footer ul li{
 }
 
 .bottom-footer p{
-  font-weight: 500;
+  /* font-weight: 500; */
   color: #282828;
+}
+
+@media screen and (max-width: 418px) {
+
+  .carousel-item img{
+    width: auto;
+    height: 200px;
+  }
+
+  .top-logo{
+    width: 180px;
+    height: auto;
+  }
+
+  .jumbotron h1{
+    font-size: 1.8rem;
+    color: #aa5656;
+  }
+
+  .category-img{
+   width: 100%;
+   height: auto;
+ }
+
+ .welcome-section{
+   padding-top: 40px;
+   padding-bottom: 15px;
+ }
+
+  .owl-next {
+    right: 0px;
+}
+
+.owl-prev {
+    margin-left: 0px!important;
+}
+
+.blog .card{
+   overflow: hidden;
+   margin-top: 30px!important;
+}
+
+.mmt-2{
+  margin-top: 20px!important;
+}
+
+.sticky{
+  display: none!important;
+}
+
 }
