@@ -60,13 +60,13 @@
 
 </footer>
 
-<div class="bottom-footer">
+<div class="bottom-footer m-text-center">
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 mmt-1">
         <p class="mb-0 f-12">Kolhapurimandai  2020. All Rights Reserved by Trichulin Business Ventures Pvt. Ltd.®</p>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 mmt-1">
         <p class="mb-0 f-12">website Design & developed by <a href="https://technothinksup.com/">Technothinksup solution Pvt. Ltd </a> </p>
       </div>
     </div>

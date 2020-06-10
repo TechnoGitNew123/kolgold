@@ -19,6 +19,7 @@ body{
 
 h1, h2, h3, h4, h5{
   font-family: 'Quicksand', sans-serif;
+  font-weight: 700!important;
 }
 
 p{
@@ -44,7 +45,16 @@ p{
   position: fixed !important;
   top: 0 !important;
   width: 100%!important;
+  border-bottom: 1.5px solid #e6650b!important;
 }
+
+.badge-notify {
+        background: #339059;
+        position: relative;
+        top: -12px;
+        right: 0px;
+        color: #fff;
+    }
 
 .f-10{
   font-size: 10px!important;
@@ -302,7 +312,7 @@ footer ul li{
 }
 
 .bottom-footer p{
-  /* font-weight: 500; */
+  font-weight: 500;
   color: #282828;
 }
 
@@ -350,8 +360,16 @@ footer ul li{
   margin-top: 20px!important;
 }
 
+.mmt-1{
+  margin-top: 8px!important;
+}
+
 .sticky{
   display: none!important;
+}
+
+.m-text-center{
+  text-align: center!important;
 }
 
 }

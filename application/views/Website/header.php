@@ -37,7 +37,7 @@
   <div class="container-fluid d-none d-sm-block">
     <div class="row">
       <div class="col-md-5  d-none d-sm-block">
-        <p class="mb-0 f-12">FREE DELIVERY FOR ONLINE TRANSACTIONS. LET US MAKE INDIA DIGITAL.</p>
+        <p class="mb-0 pt-1 f-12">FREE DELIVERY FOR ONLINE TRANSACTIONS. LET US MAKE INDIA DIGITAL.</p>
       </div>
       <div class="col-md-7 text-right">
           <span class="mr-3"><p class="text-white inline mb-0 ">   <i class="fab  fa-facebook-f "></i>  &nbsp; <i class="fab twitter fa-twitter"></i> &nbsp; <i class="fab  linkedin fa-linkedin-in"></i> &nbsp; <i class="fab instagram fa-instagram"></i>  </p> </span>
@@ -58,7 +58,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">CHAPPALS</a>
@@ -85,7 +85,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">CHAPPALS</a>
