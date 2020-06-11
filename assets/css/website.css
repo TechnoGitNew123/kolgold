@@ -316,6 +316,26 @@ footer ul li{
   color: #282828;
 }
 
+.default-page-heading{
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.default-page{
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.default-page P{
+  text-align: justify;
+}
+
+.default-page h4{
+  font-size: 1.5rem!important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 @media screen and (max-width: 418px) {
 
   .carousel-item img{
