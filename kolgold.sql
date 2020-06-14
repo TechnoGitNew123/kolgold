@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2020 at 11:02 AM
+-- Generation Time: Jun 14, 2020 at 02:36 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -41,6 +41,35 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_email`, `admin_password`) VALUES
 (1, 'Techno', 'info@technothinksup.com', '123456');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog`
+--
+
+CREATE TABLE `blog` (
+  `blog_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `blog_category` varchar(250) NOT NULL,
+  `blog_title` varchar(350) NOT NULL,
+  `blog_desc` text NOT NULL,
+  `blog_author` varchar(250) NOT NULL,
+  `blog_publish_date` varchar(50) NOT NULL,
+  `blog_image` varchar(150) NOT NULL,
+  `blog_tags` text NOT NULL,
+  `blog_status` int(11) NOT NULL DEFAULT 1,
+  `blog_addedby` int(11) DEFAULT NULL,
+  `blog_date` varchar(50) NOT NULL,
+  `blog_time` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`blog_id`, `company_id`, `blog_category`, `blog_title`, `blog_desc`, `blog_author`, `blog_publish_date`, `blog_image`, `blog_tags`, `blog_status`, `blog_addedby`, `blog_date`, `blog_time`) VALUES
+(1, 1, '', 'blog Demo 1', 'xdfgdfg qqqqqqqq wwwwwww ew rrrr', 'Asdf Zxcvb', '12-02-2020', 'blog_1_1591934751.jpg', '#Demo', 1, 1, '12-06-2020', '09:35:51 AM');
 
 -- --------------------------------------------------------
 
@@ -401,6 +430,159 @@ INSERT INTO `district` (`district_id`, `country_id`, `state_id`, `district_name`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `gst`
+--
+
+CREATE TABLE `gst` (
+  `gst_id` int(11) NOT NULL,
+  `gst_title` varchar(100) NOT NULL,
+  `gst_rate` int(11) NOT NULL,
+  `gst_status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `gst`
+--
+
+INSERT INTO `gst` (`gst_id`, `gst_title`, `gst_rate`, `gst_status`) VALUES
+(1, '0% GST', 0, 1),
+(2, '5% GST', 5, 1),
+(3, '12% GST', 12, 1),
+(4, '18% GST', 18, 1),
+(5, '28% GST', 28, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `main_category`
+--
+
+CREATE TABLE `main_category` (
+  `main_category_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `main_category_name` varchar(150) NOT NULL,
+  `main_category_desc` text NOT NULL,
+  `main_category_image` varchar(150) NOT NULL,
+  `main_category_status` int(11) NOT NULL DEFAULT 1,
+  `main_category_addedby` int(11) DEFAULT NULL,
+  `main_category_date` varchar(50) NOT NULL,
+  `main_category_time` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `main_category`
+--
+
+INSERT INTO `main_category` (`main_category_id`, `company_id`, `main_category_name`, `main_category_desc`, `main_category_image`, `main_category_status`, `main_category_addedby`, `main_category_date`, `main_category_time`) VALUES
+(1, 1, 'Kolhapuri Chappal', 'Kolhapuri Chappal', 'main_category_1_1592131494.png', 1, 1, '14-06-2020', '04:14:54 PM'),
+(2, 1, 'Kolhapuri Ghongadi', 'Kolhapuri Ghongadi', 'main_category_2_1592131486.png', 1, 1, '14-06-2020', '04:14:46 PM'),
+(3, 1, 'Kolhapuri Pheta', 'Kolhapuri Pheta', 'main_category_3_1592131479.png', 1, 1, '14-06-2020', '04:14:39 PM'),
+(4, 1, 'Kolhapuri Fashion', 'Kolhapuri Fashion', 'main_category_4_1592131470.png', 1, 1, '14-06-2020', '04:14:30 PM'),
+(5, 1, 'Kolhapuri Food', 'Kolhapuri Food', 'main_category_5_1592131462.png', 1, 1, '14-06-2020', '04:14:22 PM'),
+(6, 1, 'Kolhapuri Handcrafts', 'Kolhapuri Handcrafts', 'main_category_6_1592131455.png', 1, 1, '14-06-2020', '04:14:15 PM'),
+(7, 1, 'Kolhapuri Jewellery', 'Kolhapuri Jewellery', 'main_category_7_1592131447.png', 1, 1, '14-06-2020', '04:14:07 PM'),
+(8, 1, 'Kolhapuri Antique', 'Kolhapuri Antique', 'main_category_8_1592131429.png', 1, 1, '14-06-2020', '04:13:49 PM');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `product_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `main_category_id` int(11) NOT NULL,
+  `sub_category_id` int(11) NOT NULL,
+  `product_name` varchar(350) NOT NULL,
+  `product_desc` text NOT NULL,
+  `product_gst_per` double NOT NULL,
+  `product_sku` varchar(250) NOT NULL,
+  `product_local_shipping` double NOT NULL,
+  `product_india_shipping` double NOT NULL,
+  `product_international_shipping` double NOT NULL,
+  `product_image` varchar(150) NOT NULL,
+  `product_status` int(11) NOT NULL DEFAULT 1,
+  `product_addedby` int(11) DEFAULT NULL,
+  `product_date` varchar(50) NOT NULL,
+  `product_time` varchar(50) NOT NULL,
+  `product_added_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`product_id`, `company_id`, `main_category_id`, `sub_category_id`, `product_name`, `product_desc`, `product_gst_per`, `product_sku`, `product_local_shipping`, `product_india_shipping`, `product_international_shipping`, `product_image`, `product_status`, `product_addedby`, `product_date`, `product_time`, `product_added_at`) VALUES
+(1, 1, 2, 0, 'Demo Product1', 'sadfasdf', 12, '', 100, 200, 500, 'product_1_1592046374.jpg', 1, 1, '', '', '2020-06-14 08:25:23'),
+(2, 1, 2, 0, 'Demo Product2', 'sadfasdf', 12, '', 100, 200, 500, 'product_1_1592046374.jpg', 1, 1, '', '', '2020-06-14 08:25:27'),
+(3, 1, 2, 0, 'Demo Product3', 'sadfasdf', 12, '', 100, 200, 500, 'product_1_1592046374.jpg', 1, 1, '', '', '2020-06-14 08:25:30'),
+(4, 1, 2, 0, 'Demo Product4', 'sadfasdf', 12, '', 100, 200, 500, 'product_1_1592046374.jpg', 1, 1, '', '', '2020-06-14 08:25:34'),
+(5, 1, 2, 0, 'Demo Product5', 'sadfasdf', 12, '', 100, 200, 500, 'product_1_1592046374.jpg', 1, 1, '', '', '2020-06-14 08:25:37'),
+(6, 1, 2, 0, 'Demo Product6', 'sadfasdf', 12, '', 100, 200, 500, 'product_1_1592046374.jpg', 1, 1, '', '', '2020-06-14 08:25:41'),
+(7, 1, 2, 0, 'Demo Product7', 'sadfasdf', 12, '', 100, 200, 500, 'product_1_1592046374.jpg', 1, 1, '', '', '2020-06-14 08:25:44'),
+(8, 1, 2, 0, 'Demo Product8', 'sadfasdf', 12, '', 100, 200, 500, 'product_1_1592046374.jpg', 1, 1, '', '', '2020-06-14 08:25:47'),
+(9, 1, 2, 0, 'Demo Product9', 'sadfasdf', 12, '', 100, 200, 500, 'product_1_1592046374.jpg', 1, 1, '', '', '2020-06-14 08:25:49'),
+(10, 1, 2, 0, 'Demo Product10', 'sadfasdf', 12, '', 100, 200, 500, 'product_1_1592046374.jpg', 1, 1, '', '', '2020-06-14 08:25:54'),
+(11, 1, 2, 0, 'Demo Product11', 'sadfasdf', 12, '', 100, 200, 500, 'product_1_1592046374.jpg', 1, 1, '', '', '2020-06-14 08:25:56'),
+(12, 1, 2, 0, 'Demo Product12', 'sadfasdf', 12, '', 100, 200, 500, 'product_1_1592046374.jpg', 1, 1, '', '', '2020-06-14 08:26:00'),
+(13, 1, 2, 0, 'Demo Product13', 'sadfasdf', 12, '', 100, 200, 500, 'product_1_1592046374.jpg', 1, 1, '', '', '2020-06-14 08:26:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_attribute`
+--
+
+CREATE TABLE `product_attribute` (
+  `product_attribute_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `product_attribute_size` varchar(350) NOT NULL,
+  `product_attribute_color` varchar(350) NOT NULL,
+  `product_attribute_weight` double NOT NULL,
+  `unit_id` int(11) NOT NULL,
+  `product_attribute_unit` varchar(350) NOT NULL,
+  `product_attribute_price` double NOT NULL,
+  `product_attribute_status` int(11) NOT NULL DEFAULT 1,
+  `product_attribute_addedby` int(11) DEFAULT NULL,
+  `product_attribute_added_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_attribute`
+--
+
+INSERT INTO `product_attribute` (`product_attribute_id`, `product_id`, `product_attribute_size`, `product_attribute_color`, `product_attribute_weight`, `unit_id`, `product_attribute_unit`, `product_attribute_price`, `product_attribute_status`, `product_attribute_addedby`, `product_attribute_added_at`) VALUES
+(1, 1, '9', 'Yellow', 700, 1, 'g', 1000, 1, 1, '2020-06-14 00:13:36'),
+(2, 1, '10', 'Red', 900, 1, 'g', 1600, 1, 1, '2020-06-14 00:15:38'),
+(3, 2, '9', 'Yellow', 700, 1, 'g', 1000, 1, 1, '2020-06-14 00:13:36'),
+(4, 2, '10', 'Red', 900, 1, 'g', 1600, 1, 1, '2020-06-14 00:15:38'),
+(5, 3, '9', 'Yellow', 700, 1, 'g', 1000, 1, 1, '2020-06-14 00:13:36'),
+(6, 3, '10', 'Red', 900, 1, 'g', 1600, 1, 1, '2020-06-14 00:15:38'),
+(7, 4, '9', 'Yellow', 700, 1, 'g', 1000, 1, 1, '2020-06-14 00:13:36'),
+(8, 4, '10', 'Red', 900, 1, 'g', 1600, 1, 1, '2020-06-14 00:15:38'),
+(9, 5, '9', 'Yellow', 700, 1, 'g', 1000, 1, 1, '2020-06-14 00:13:36'),
+(10, 5, '10', 'Red', 900, 1, 'g', 1600, 1, 1, '2020-06-14 00:15:38'),
+(11, 6, '9', 'Yellow', 700, 1, 'g', 1000, 1, 1, '2020-06-14 00:13:36'),
+(12, 6, '10', 'Red', 900, 1, 'g', 1600, 1, 1, '2020-06-14 00:15:38'),
+(13, 7, '9', 'Yellow', 700, 1, 'g', 1000, 1, 1, '2020-06-14 00:13:36'),
+(14, 7, '10', 'Red', 900, 1, 'g', 1600, 1, 1, '2020-06-14 00:15:38'),
+(15, 8, '9', 'Yellow', 700, 1, 'g', 1000, 1, 1, '2020-06-14 00:13:36'),
+(16, 8, '10', 'Red', 900, 1, 'g', 1600, 1, 1, '2020-06-14 00:15:38'),
+(17, 9, '9', 'Yellow', 700, 1, 'g', 1000, 1, 1, '2020-06-14 00:13:36'),
+(18, 9, '10', 'Red', 900, 1, 'g', 1600, 1, 1, '2020-06-14 00:15:38'),
+(19, 10, '9', 'Yellow', 700, 1, 'g', 1000, 1, 1, '2020-06-14 00:13:36'),
+(20, 10, '10', 'Red', 900, 1, 'g', 1600, 1, 1, '2020-06-14 00:15:38'),
+(21, 11, '9', 'Yellow', 700, 1, 'g', 1000, 1, 1, '2020-06-14 00:13:36'),
+(22, 11, '10', 'Red', 900, 1, 'g', 1600, 1, 1, '2020-06-14 00:15:38'),
+(23, 12, '9', 'Yellow', 700, 1, 'g', 1000, 1, 1, '2020-06-14 00:13:36'),
+(24, 12, '10', 'Red', 900, 1, 'g', 1600, 1, 1, '2020-06-14 00:15:38'),
+(25, 13, '9', 'Yellow', 700, 1, 'g', 1000, 1, 1, '2020-06-14 00:13:36'),
+(26, 13, '10', 'Red', 900, 1, 'g', 1600, 1, 1, '2020-06-14 00:15:38');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `role`
 --
 
@@ -420,6 +602,33 @@ CREATE TABLE `role` (
 INSERT INTO `role` (`role_id`, `company_id`, `role_name`, `role_status`, `role_addedby`, `role_date`) VALUES
 (1, 1, 'Admin', 1, 1, ''),
 (2, 1, 'User', 1, 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slider`
+--
+
+CREATE TABLE `slider` (
+  `slider_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `slider_title` varchar(150) NOT NULL,
+  `slider_possition` int(11) NOT NULL,
+  `slider_image` varchar(150) NOT NULL,
+  `slider_status` int(11) NOT NULL DEFAULT 1,
+  `slider_addedby` int(11) DEFAULT NULL,
+  `slider_date` varchar(50) NOT NULL,
+  `slider_time` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `slider`
+--
+
+INSERT INTO `slider` (`slider_id`, `company_id`, `slider_title`, `slider_possition`, `slider_image`, `slider_status`, `slider_addedby`, `slider_date`, `slider_time`) VALUES
+(3, 1, 'Demo1', 1, 'slider_3_1592131373.jpg', 0, 1, '14-06-2020', '04:12:53 PM'),
+(4, 1, 'Home Made State Of Art Kolhapuri Chappels', 1, 'slider_4_1592131252.jpg', 1, 1, '14-06-2020', '04:10:52 PM'),
+(5, 1, 'Home Made State Of Art Kolhapuri Chappels', 1, 'slider_5_1592131242.jpg', 1, 1, '14-06-2020', '04:10:42 PM');
 
 -- --------------------------------------------------------
 
@@ -2625,6 +2834,56 @@ INSERT INTO `state` (`state_id`, `country_id`, `state_name`, `date`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sub_category`
+--
+
+CREATE TABLE `sub_category` (
+  `sub_category_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `main_category_id` int(11) NOT NULL,
+  `sub_category_name` varchar(150) NOT NULL,
+  `sub_category_desc` text NOT NULL,
+  `sub_category_image` varchar(150) NOT NULL,
+  `sub_category_status` int(11) NOT NULL DEFAULT 1,
+  `sub_category_addedby` int(11) DEFAULT NULL,
+  `sub_category_date` varchar(50) NOT NULL,
+  `sub_category_time` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sub_category`
+--
+
+INSERT INTO `sub_category` (`sub_category_id`, `company_id`, `main_category_id`, `sub_category_name`, `sub_category_desc`, `sub_category_image`, `sub_category_status`, `sub_category_addedby`, `sub_category_date`, `sub_category_time`) VALUES
+(2, 1, 2, 'Sub Demo 1', 'dfgdf sdfg sdfg', 'sub_category_2_1591875441.jpg', 1, 1, '11-06-2020', '05:07:32 PM');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `unit`
+--
+
+CREATE TABLE `unit` (
+  `unit_id` int(11) NOT NULL,
+  `company_id` int(11) NOT NULL,
+  `unit_name` varchar(150) NOT NULL,
+  `unit_status` int(11) NOT NULL DEFAULT 1,
+  `unit_addedby` int(11) DEFAULT NULL,
+  `unit_date` varchar(50) NOT NULL,
+  `unit_time` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `unit`
+--
+
+INSERT INTO `unit` (`unit_id`, `company_id`, `unit_name`, `unit_status`, `unit_addedby`, `unit_date`, `unit_time`) VALUES
+(1, 1, 'g', 1, 1, '13-06-2020', '00:00 PM'),
+(2, 1, 'Kg', 1, 1, '13-06-2020', '00:00 PM');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -2681,6 +2940,12 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
+-- Indexes for table `blog`
+--
+ALTER TABLE `blog`
+  ADD PRIMARY KEY (`blog_id`);
+
+--
 -- Indexes for table `company`
 --
 ALTER TABLE `company`
@@ -2699,16 +2964,58 @@ ALTER TABLE `district`
   ADD PRIMARY KEY (`district_id`);
 
 --
+-- Indexes for table `gst`
+--
+ALTER TABLE `gst`
+  ADD PRIMARY KEY (`gst_id`);
+
+--
+-- Indexes for table `main_category`
+--
+ALTER TABLE `main_category`
+  ADD PRIMARY KEY (`main_category_id`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`product_id`);
+
+--
+-- Indexes for table `product_attribute`
+--
+ALTER TABLE `product_attribute`
+  ADD PRIMARY KEY (`product_attribute_id`);
+
+--
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`role_id`);
 
 --
+-- Indexes for table `slider`
+--
+ALTER TABLE `slider`
+  ADD PRIMARY KEY (`slider_id`);
+
+--
 -- Indexes for table `state`
 --
 ALTER TABLE `state`
   ADD PRIMARY KEY (`state_id`);
+
+--
+-- Indexes for table `sub_category`
+--
+ALTER TABLE `sub_category`
+  ADD PRIMARY KEY (`sub_category_id`);
+
+--
+-- Indexes for table `unit`
+--
+ALTER TABLE `unit`
+  ADD PRIMARY KEY (`unit_id`);
 
 --
 -- Indexes for table `user`
@@ -2725,6 +3032,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `blog`
+--
+ALTER TABLE `blog`
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `company`
@@ -2745,16 +3058,58 @@ ALTER TABLE `district`
   MODIFY `district_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
+-- AUTO_INCREMENT for table `gst`
+--
+ALTER TABLE `gst`
+  MODIFY `gst_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `main_category`
+--
+ALTER TABLE `main_category`
+  MODIFY `main_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `product_attribute`
+--
+ALTER TABLE `product_attribute`
+  MODIFY `product_attribute_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `slider`
+--
+ALTER TABLE `slider`
+  MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `state`
 --
 ALTER TABLE `state`
   MODIFY `state_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2181;
+
+--
+-- AUTO_INCREMENT for table `sub_category`
+--
+ALTER TABLE `sub_category`
+  MODIFY `sub_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `unit`
+--
+ALTER TABLE `unit`
+  MODIFY `unit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`

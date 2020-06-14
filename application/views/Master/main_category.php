@@ -32,31 +32,32 @@
                 <div class="card-body p-0 " <?php if(isset($update)){ echo 'style="display: block;"'; } else{ echo 'style="display: none;"'; } ?>>
                   <form class="input_form m-0" id="form_action" role="form" action="" method="post" autocomplete="off" enctype="multipart/form-data">
                     <div class="row p-4">
-
-
-
                       <div class="form-group col-md-12 ">
                         <label>Enter Main Category Name</label>
-                        <input type="number" class="form-control form-control-sm" name="student_no" id="student_no" value="" placeholder="Enter Main Category Name" >
+                        <input type="text" class="form-control form-control-sm" name="main_category_name" id="main_category_name" value="<?php if(isset($main_category_info)){ echo $main_category_info['main_category_name']; } ?>" placeholder="Enter Main Category Name" required>
                       </div>
-
-                      <div class="form-group col-md-12 select_sm">
-                          <label>Discription</label>
-                          <textarea class="form-control" name="blog_description" rows="3" cols="85"></textarea>
+                      <div class="form-group col-md-12 ">
+                        <label>Discription</label>
+                        <textarea class="form-control form-control-sm" name="main_category_desc" id="main_category_desc" rows="3" required><?php if(isset($main_category_info)){ echo $main_category_info['main_category_desc']; } ?></textarea>
                       </div>
-
-                      <div class="form-group col-md-12 select_sm">
+                      <div class="form-group col-md-6">
                         <label>Category Image</label>
-                        <input type="file" name="blog_img" value="">
+                        <input type="file" class="form-control form-control-sm" name="main_category_image" id="main_category_image" >
                       </div>
-
+                      <div class="form-group col-md-6">
+                        <?php if(isset($main_category_info) && $main_category_info['main_category_image']){ ?>
+                          <label>Uploaded Slider Image</label><br>
+                          <img width="200px" src="<?php echo base_url() ?>assets/images/category/<?php echo $main_category_info['main_category_image'];  ?>" alt="Slider Image">
+                          <input type="hidden" name="old_main_category_img" value="<?php echo $main_category_info['main_category_image']; ?>">
+                        <?php } ?>
+                      </div>
                     </div>
                     <div class="card-footer clearfix" style="display: block;">
                       <div class="row">
                         <div class="col-md-6 text-left">
                           <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" name="student_status" id="student_status" value="0" <?php if(isset($student_info) && $student_info['student_status'] == 0){ echo 'checked'; } ?>>
-                            <label for="student_status" class="custom-control-label">Disable This Main Category</label>
+                            <input class="custom-control-input" type="checkbox" name="main_category_status" id="main_category_status" value="0" <?php if(isset($main_category_info) && $main_category_info['main_category_status'] == 0){ echo 'checked'; } ?>>
+                            <label for="main_category_status" class="custom-control-label">Disable This Main Category</label>
                           </div>
                         </div>
                         <div class="col-md-6 text-right">
@@ -92,33 +93,27 @@
                     <th class="wt_50">Status</th>
                   </tr>
                   </thead>
-                  <!-- <tbody>
-                    <?php $i=0; foreach ($student_list as $list) { $i++;
-                      $medium_details = $this->Master_Model->get_info_arr_fields('medium_name','medium_id', $list->medium_id, 'medium');
-                      $class_details = $this->Master_Model->get_info_arr_fields('class_name','class_id', $list->class_id, 'class');
-                      $batch_details = $this->Master_Model->get_info_arr_fields('batch_name','batch_id', $list->batch_id, 'batch');
+                  <tbody>
+                    <?php $i=0; foreach ($main_category_list as $list) { $i++;
                     ?>
                     <tr>
                       <td class="d-none"><?php echo $i; ?></td>
                       <td class="text-center">
                         <div class="btn-group">
-                          <a href="<?php echo base_url() ?>Master/edit_student/<?php echo $list->student_id; ?>" type="button" class="btn btn-sm btn-default"><i class="fa fa-edit text-primary"></i></a>
-                          <a href="<?php echo base_url() ?>Master/delete_student/<?php echo $list->student_id; ?>" type="button" class="btn btn-sm btn-default" onclick="return confirm('Delete this Main Category Information');"><i class="fa fa-trash text-danger"></i></a>
+                          <a href="<?php echo base_url() ?>Master/edit_main_category/<?php echo $list->main_category_id; ?>" type="button" class="btn btn-sm btn-default"><i class="fa fa-edit text-primary"></i></a>
+                          <a href="<?php echo base_url() ?>Master/delete_main_category/<?php echo $list->main_category_id; ?>" type="button" class="btn btn-sm btn-default" onclick="return confirm('Delete this Main Category Information');"><i class="fa fa-trash text-danger"></i></a>
                         </div>
                       </td>
-                      <td><?php echo $list->student_name; ?></td>
-                      <td><?php echo $list->student_mobile; ?></td>
-                      <td><?php echo $list->student_password; ?></td>
-                      <td><?php if($medium_details){ echo $medium_details[0]['medium_name']; } ?></td>
-                      <td><?php if($class_details){ echo $class_details[0]['class_name']; } ?></td>
-                      <td><?php if($batch_details){ echo $batch_details[0]['batch_name']; } ?></td>
+                      <td><?php echo $list->main_category_name; ?></td>
+                      <td><?php echo $list->main_category_desc; ?></td>
+                      <td><a target="_blank" href="<?php echo base_url() ?>assets/images/category/<?php echo $list->main_category_image;?>"><?php echo $list->main_category_image; ?></a></td>
                       <td>
-                        <?php if($list->student_status == 0){ echo '<span class="text-danger">Inactive</span>'; }
+                        <?php if($list->main_category_status == 0){ echo '<span class="text-danger">Inactive</span>'; }
                           else{ echo '<span class="text-success">Active</span>'; } ?>
                       </td>
                     </tr>
                   <?php } ?>
-                  </tbody> -->
+                  </tbody>
                 </table>
               </div>
             </div>

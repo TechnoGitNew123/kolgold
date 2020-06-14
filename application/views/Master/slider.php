@@ -32,31 +32,35 @@
                 <div class="card-body p-0 " <?php if(isset($update)){ echo 'style="display: block;"'; } else{ echo 'style="display: none;"'; } ?>>
                   <form class="input_form m-0" id="form_action" role="form" action="" method="post" autocomplete="off" enctype="multipart/form-data">
                     <div class="row p-4">
-
                       <div class="form-group col-md-12 ">
                         <label>Enter Slider Title</label>
-                        <input type="number" class="form-control form-control-sm" name="student_no" id="student_no" value="" placeholder="Enter Slider Title" >
+                        <input type="text" class="form-control form-control-sm" name="slider_title" id="slider_title" value="<?php if(isset($slider_info)){ echo $slider_info['slider_title']; } ?>" placeholder="Enter Slider Title" required>
                       </div>
-
                       <div class="form-group col-md-12 select_sm">
                         <label>Select Position</label>
-                        <select class="form-control select2" name="blog_category" id="blog_category" data-placeholder="Select Position">
+                        <select class="form-control select2" name="slider_possition" id="slider_possition" data-placeholder="Select Position" required>
                           <option value="">Select Position</option>
+                          <option value="1" <?php if(isset($slider_info) && $slider_info['slider_possition'] == '1'){ echo 'selected'; } ?>>Home Page Slider 1</option>
                         </select>
                       </div>
-
-                      <div class="form-group col-md-12 select_sm">
+                      <div class="form-group col-md-6">
                         <label>Slider Image</label>
-                        <input type="file" name="blog_img" value="">
+                        <input type="file" name="slider_image" class="form-control form-control-sm">
                       </div>
-
+                      <div class="form-group col-md-6">
+                        <?php if(isset($slider_info) && $slider_info['slider_image']){ ?>
+                          <label>Uploaded Slider Image</label><br>
+                          <img width="200px" src="<?php echo base_url() ?>assets/images/slider/<?php echo $slider_info['slider_image'];  ?>" alt="Slider Image">
+                          <input type="hidden" name="old_slider_img" value="<?php echo $slider_info['slider_image'];  ?>">
+                        <?php } ?>
+                      </div>
                     </div>
                     <div class="card-footer clearfix" style="display: block;">
                       <div class="row">
                         <div class="col-md-6 text-left">
                           <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" name="student_status" id="student_status" value="0" <?php if(isset($student_info) && $student_info['student_status'] == 0){ echo 'checked'; } ?>>
-                            <label for="student_status" class="custom-control-label">Disable This Slider</label>
+                            <input class="custom-control-input" type="checkbox" name="slider_status" id="slider_status" value="0" <?php if(isset($slider_info) && $slider_info['slider_status'] == 0){ echo 'checked'; } ?>>
+                            <label for="slider_status" class="custom-control-label">Disable This Slider</label>
                           </div>
                         </div>
                         <div class="col-md-6 text-right">
@@ -92,33 +96,30 @@
                     <th class="wt_50">Status</th>
                   </tr>
                   </thead>
-                  <!-- <tbody>
-                    <?php $i=0; foreach ($student_list as $list) { $i++;
-                      $medium_details = $this->Master_Model->get_info_arr_fields('medium_name','medium_id', $list->medium_id, 'medium');
-                      $class_details = $this->Master_Model->get_info_arr_fields('class_name','class_id', $list->class_id, 'class');
-                      $batch_details = $this->Master_Model->get_info_arr_fields('batch_name','batch_id', $list->batch_id, 'batch');
+                  <tbody>
+                    <?php $i=0; foreach ($slider_list as $list) { $i++;
+                      // $medium_details = $this->Master_Model->get_info_arr_fields('medium_name','medium_id', $list->medium_id, 'medium');
+                      // $class_details = $this->Master_Model->get_info_arr_fields('class_name','class_id', $list->class_id, 'class');
+                      // $batch_details = $this->Master_Model->get_info_arr_fields('batch_name','batch_id', $list->batch_id, 'batch');
                     ?>
                     <tr>
                       <td class="d-none"><?php echo $i; ?></td>
                       <td class="text-center">
                         <div class="btn-group">
-                          <a href="<?php echo base_url() ?>Master/edit_student/<?php echo $list->student_id; ?>" type="button" class="btn btn-sm btn-default"><i class="fa fa-edit text-primary"></i></a>
-                          <a href="<?php echo base_url() ?>Master/delete_student/<?php echo $list->student_id; ?>" type="button" class="btn btn-sm btn-default" onclick="return confirm('Delete this Slider');"><i class="fa fa-trash text-danger"></i></a>
+                          <a href="<?php echo base_url() ?>Master/edit_slider/<?php echo $list->slider_id; ?>" type="button" class="btn btn-sm btn-default"><i class="fa fa-edit text-primary"></i></a>
+                          <a href="<?php echo base_url() ?>Master/delete_slider/<?php echo $list->slider_id; ?>" type="button" class="btn btn-sm btn-default" onclick="return confirm('Delete this Slider');"><i class="fa fa-trash text-danger"></i></a>
                         </div>
                       </td>
-                      <td><?php echo $list->student_name; ?></td>
-                      <td><?php echo $list->student_mobile; ?></td>
-                      <td><?php echo $list->student_password; ?></td>
-                      <td><?php if($medium_details){ echo $medium_details[0]['medium_name']; } ?></td>
-                      <td><?php if($class_details){ echo $class_details[0]['class_name']; } ?></td>
-                      <td><?php if($batch_details){ echo $batch_details[0]['batch_name']; } ?></td>
+                      <td><?php echo $list->slider_title; ?></td>
+                      <td><?php echo $list->slider_possition; ?></td>
+                      <td><img width="100px" src="<?php echo base_url() ?>assets/images/slider/<?php echo $list->slider_image; ?>" alt="Slider Image"></td>
                       <td>
-                        <?php if($list->student_status == 0){ echo '<span class="text-danger">Inactive</span>'; }
+                        <?php if($list->slider_status == 0){ echo '<span class="text-danger">Inactive</span>'; }
                           else{ echo '<span class="text-success">Active</span>'; } ?>
                       </td>
                     </tr>
                   <?php } ?>
-                  </tbody> -->
+                  </tbody>
                 </table>
               </div>
             </div>

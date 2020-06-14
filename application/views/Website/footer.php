@@ -60,13 +60,13 @@
 
 </footer>
 
-<div class="bottom-footer m-text-center">
+<div class="bottom-footer">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 mmt-1">
+      <div class="col-md-6">
         <p class="mb-0 f-12">Kolhapurimandai  2020. All Rights Reserved by Trichulin Business Ventures Pvt. Ltd.®</p>
       </div>
-      <div class="col-md-6 mmt-1">
+      <div class="col-md-6">
         <p class="mb-0 f-12">website Design & developed by <a href="https://technothinksup.com/">Technothinksup solution Pvt. Ltd </a> </p>
       </div>
     </div>
@@ -79,10 +79,10 @@
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="<?php echo base_url(); ?>assets/js/jquery.js" ></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<!-- <script src="<?php echo base_url(); ?>assets/js/popper.js" ></script>
-<script src="<?php echo base_url(); ?>assets/js/bootstrap.js" ></script> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+<script src="<?php echo base_url(); ?>assets/js/popper.js" ></script>
+<script src="<?php echo base_url(); ?>assets/js/bootstrap.js" ></script>
 
 <script src="<?php echo base_url(); ?>assets/js/owl.carousel.min.js"></script>
 

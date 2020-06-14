@@ -8,51 +8,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
 
     public function index(){
-      $this->load->view('Website/header');
-      $this->load->view('Website/index');
-      $this->load->view('Website/footer');
-    }
-
-    public function privacy_policy(){
-      $this->load->view('Website/header');
-      $this->load->view('Website/privacy_policy');
-      $this->load->view('Website/footer');
-    }
-
-    public function shipping_policy(){
-      $this->load->view('Website/header');
-      $this->load->view('Website/shipping_policy');
-      $this->load->view('Website/footer');
-    }
-
-    public function cancel_policy(){
-      $this->load->view('Website/header');
-      $this->load->view('Website/cancel_policy');
-      $this->load->view('Website/footer');
-    }
-
-    public function return_policy(){
-      $this->load->view('Website/header');
-      $this->load->view('Website/return_policy');
-      $this->load->view('Website/footer');
-    }
-
-    public function terms(){
-      $this->load->view('Website/header');
-      $this->load->view('Website/terms');
-      $this->load->view('Website/footer');
-    }
-
-    public function disclaimer(){
-      $this->load->view('Website/header');
-      $this->load->view('Website/disclaimer');
-      $this->load->view('Website/footer');
-    }
-
-    public function payment_methode(){
-      $this->load->view('Website/header');
-      $this->load->view('Website/payment_methode');
-      $this->load->view('Website/footer');
+      $data['slider_list'] = $this->Master_Model->get_list_by_id3('','slider_status','1','','','','','slider_id','ASC','slider');
+      $data['main_category_list'] = $this->Master_Model->get_list_by_id3('','main_category_status','1','','','','','main_category_id','ASC','main_category');
+      $product_list = $this->Master_Model->get_list_by_id3('','product_status','1','','','','','product_id','DESC','product');
+      foreach ($product_list as $product_list1) {
+        $product_id = $product_list1->product_id;
+        $product_attribute_list = $this->Master_Model->get_list_by_id3('','product_id',$product_id,'','','','','product_attribute_id','ASC','product_attribute');
+        $product_list1->product_attribute_list = $product_attribute_list;
+      }
+      $data['product_list'] = $product_list;
+      // $data['product_list'] = $this->Master_Model->get_list_by_id3('','product_status','1','','','','','product_id','ASC','product');
+      $this->load->view('Website/header', $data);
+      $this->load->view('Website/index', $data);
+      $this->load->view('Website/footer', $data);
     }
 
     public function login(){

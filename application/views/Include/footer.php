@@ -87,7 +87,7 @@
       toastr.success('File Uploaded Successfully');
     });
   <?php } ?>
-  <?php if($this->session->flashdata('upload_fail')){ ?>
+  <?php if($this->session->flashdata('upload_error')){ ?>
     $(document).ready(function(){
       toastr.error('File Not Uploaded');
     });
