@@ -58,16 +58,19 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">CHAPPALS</a>
+        <a class="nav-link" href="<?php echo base_url(); ?>Website/about">About Us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">HOMEMADE FOOD</a>
+        <a class="nav-link" href="<?php echo base_url(); ?>Website/product_page">Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">KONKAN CRAFT</a>
+        <a class="nav-link" href="<?php echo base_url(); ?>Website/blog">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url(); ?>Website/contact">Contact</a>
       </li>
     </ul>
   </div>
@@ -85,16 +88,19 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="<?php echo base_url(); ?>">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">CHAPPALS</a>
+                <a class="nav-link" href="<?php echo base_url(); ?>Website/about">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">HOMEMADE FOOD</a>
+                <a class="nav-link" href="<?php echo base_url(); ?>Website/product_page">Products</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">KONKAN CRAFT</a>
+                <a class="nav-link" href="<?php echo base_url(); ?>Website/blog">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url(); ?>Website/contact">Contact</a>
               </li>
             </ul>
           </div>

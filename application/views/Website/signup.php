@@ -26,7 +26,7 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Login </p>
+      <p class="login-box-msg">Sign up </p>
       <form  role="form" action="" method="post">
         <div class="row">
           <div class="col-md-6">
@@ -78,7 +78,6 @@
       </div>
     </div>
     <span class="text-red"> <?php echo form_error('password'); ?> </span>
-
         <div class="row">
           <div class="col-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Sign Up</button>
@@ -96,9 +95,6 @@
     </div>
     <!-- /.login-card-body -->
   </div>
-
-
-
 
 </div>
 <!-- /.login-box -->

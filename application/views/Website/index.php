@@ -41,11 +41,14 @@
     <div class="row">
       <?php foreach ($main_category_list as $main_category_list1) { ?>
         <div class="col-md-3 col-6">
+          <a class="no-a" href="<?php echo base_url(); ?>Website/product_page">
           <div class="category-div">
             <img class="category-img" src="<?php echo base_url(); ?>assets/images/category/<?php echo $main_category_list1->main_category_image; ?>" alt="" width="100%">
             <h5 class="text-center"><?php echo $main_category_list1->main_category_name; ?></h5>
           </div>
+        </a>
         </div>
+
       <?php } ?>
     </div>
   </div>
